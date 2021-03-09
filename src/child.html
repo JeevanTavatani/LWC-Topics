@@ -1,0 +1,8 @@
+<template>
+	<div class="w3-bar-block w3-light-grey">
+		<template for:each={playerList} for:item="player">
+			<a key={player.id} name={player.id} class="w3-bar-item w3-button" href="javascript:void(0);"
+				onclick={selectedplayer}>{player.fields.name}</a>
+		</template>
+	</div>
+</template>
