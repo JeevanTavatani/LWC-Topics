@@ -1,8 +1,9 @@
-import { LightningElement, api} from 'lwc';
+import { LightningElement, api } from "lwc";
 
+/**
+ * Show an item
+ */
 export default class Child extends LightningElement {
-    @api playerList
-    selectedplayer(event){
-        this.dispatchEvent(new CustomEvent('player',{detail:event.target.name}))
-    }
+  @api
+  label = "";
 }
