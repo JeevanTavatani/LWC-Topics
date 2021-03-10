@@ -1,10 +1,26 @@
 <template>
-	<lightning-card title="Data Binding Demo">
-		<div class="slds-m-around_medium">
-			<p>Hello {greeting}!</p>
-			</br>
-			<lightning-input label="Enter Text:" onchange={eventhandler}>
-			</lightning-input>
+	<lightning-card title="Trigger Event with Data" icon-name="utility:people">
+		<div class="w3-row">
+			<div class="w3-half w3-container">
+				<h4><strong>Object within object demo:</strong></h4><br/>
+				<h4><strong>Player List: </strong></h4><br/>
+				<c-child player-list={playerList} onplayer={selected}></c-child>
+			</div>
+			<div class="w3-half w3-container">
+				<template if:true={selectedPlayer}>
+					<div class="w3-card-4 w3-round-large">
+						<header class="w3-round-large w3-light-grey" style="padding: 1px 15px;">
+							<h3>{selectedPlayer.fields.name}</h3>
+						</header>
+						<div class="w3-container">
+							<img class="w3-round-large w3-left w3-margin-right" src={selectedPlayer.fields.imgUrl} alt={selectedPlayer.name}/>
+							<p><strong>Player Country:</strong> {selectedPlayer.fields.country}</p>
+							<p><strong>Player Rating:</strong> {selectedPlayer.fields.rating}</p>
+							<p><strong>Player Position:</strong> {selectedPlayer.fields.position}</p>
+						</div>
+					</div>
+				</template>
+			</div>
 		</div>
 	</lightning-card>
 </template>
